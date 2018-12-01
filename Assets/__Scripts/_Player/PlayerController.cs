@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
 	private void Start ()
     {
-        player.GetComponent<Player>();
+       
         rigibody = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
 
