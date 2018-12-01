@@ -16,8 +16,12 @@ public class FloatingScrapMovement : MonoBehaviour {
 	
 	void FixedUpdate ()
     {
-        if (prefab.position.y < 6)
-            prefab.position -= new Vector3(0, Time.deltaTime*scrapSpeed, 0);
+        if (prefab.position.y < 10)
+        {
+            prefab.position -= new Vector3(0, Time.deltaTime * scrapSpeed, 0);
+            //prefab.Rotate(new Vector3(0,0,15)*Time.deltaTime);
+        }
+           
         if (prefab.position.y < - 10)
             Destroy(gameObjectWhenUseless);
 
