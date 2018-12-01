@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 114935081090962620}
   - component: {fileID: 114803378195797794}
   m_Layer: 0
-  m_Name: Player 2
+  m_Name: Player_2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1546717867683600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.002, y: 0.255, z: 0}
+  m_LocalPosition: {x: -0.003, y: 0.416, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4391007262892084}
@@ -117,8 +117,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890723541352034}
   m_LocalRotation: {x: -0, y: -0, z: -0.69558567, w: 0.71844316}
-  m_LocalPosition: {x: 0.0998, y: 0.0722, z: 0}
-  m_LocalScale: {x: 1.219321, y: 0.6336407, z: 1.578269}
+  m_LocalPosition: {x: 0.059, y: -0.638, z: 0}
+  m_LocalScale: {x: 2.2774694, y: 1.2621874, z: 1.9476209}
   m_Children:
   - {fileID: 4953808314531556}
   m_Father: {fileID: 4092210066983660}
@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1780191413000392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09703865, y: -0.036309816, z: 0}
+  m_LocalPosition: {x: 1.7041646, y: 0.04127395, z: 0}
   m_LocalScale: {x: 1.6, y: 1.4, z: 1}
   m_Children:
   - {fileID: 4076895539333204}
@@ -146,8 +146,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467825768370824}
   m_LocalRotation: {x: -0, y: -0, z: -0.7021952, w: -0.7119845}
-  m_LocalPosition: {x: -0.09000003, y: 0.092999965, z: 0}
-  m_LocalScale: {x: 1.2821679, y: 0.6308752, z: 1.57827}
+  m_LocalPosition: {x: -0.123, y: -0.654, z: 0}
+  m_LocalScale: {x: 2.2654624, y: 1.1146933, z: 2.788645}
   m_Children:
   - {fileID: 4045984704896558}
   m_Father: {fileID: 4092210066983660}
@@ -160,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354715794177288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.004, y: 0.231, z: 0}
+  m_LocalPosition: {x: 0.005, y: 0.276, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4076895539333204}
@@ -202,7 +202,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 1.28}
+    oldSize: {x: 2.56, y: 5.12}
     newSize: {x: 0.64, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -210,18 +210,26 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.06, y: 0.58}
-      - {x: 0.02, y: 0.59}
-      - {x: -0.03, y: 0.59}
-      - {x: -0.089999996, y: 0.56}
-      - {x: -0.21, y: 0.42999998}
-      - {x: -0.24, y: 0.01}
-      - {x: -0.24, y: -0.41}
-      - {x: -0.11, y: -0.48}
-      - {x: 0.11, y: -0.48}
-      - {x: 0.24, y: -0.42}
-      - {x: 0.24, y: -0.03}
-      - {x: 0.21, y: 0.42999998}
+    - - {x: 0.086413324, y: 0.61017156}
+      - {x: 0.05962003, y: 0.6654292}
+      - {x: -0.010190085, y: 0.7333158}
+      - {x: -0.06358676, y: 0.6957728}
+      - {x: -0.18358678, y: 0.52805805}
+      - {x: -0.25981015, y: 0.3117175}
+      - {x: -0.32584333, y: 0.07274802}
+      - {x: -0.3804253, y: -0.3785168}
+      - {x: -0.37942037, y: -1.346009}
+      - {x: -0.36232048, y: -1.6051147}
+      - {x: -0.26847994, y: -1.8528143}
+      - {x: -0.14481097, y: -2.0429287}
+      - {x: 0.037363283, y: -2.0564735}
+      - {x: 0.18493228, y: -1.9465206}
+      - {x: 0.29943013, y: -1.6796703}
+      - {x: 0.34892774, y: -0.71082217}
+      - {x: 0.34370777, y: -0.5160188}
+      - {x: 0.3060333, y: -0.029999997}
+      - {x: 0.2736711, y: 0.17490818}
+      - {x: 0.1637766, y: 0.45262867}
 --- !u!114 &114028029349391678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,12 +258,15 @@ MonoBehaviour:
   playerNumber: 2
   scrapBullet1: {fileID: 1251236894572960, guid: 5609917277dbd1d45b5e9fca18619166,
     type: 2}
+  pirateBullet: {fileID: 0}
+  goldBullet: {fileID: 0}
   bulletSpawn1: {fileID: 4045984704896558}
   bulletSpawn2: {fileID: 4953808314531556}
   speed: 10
   cooldown: 0.5
   fireLeft: Fire2LEFT
   fireRight: Fire2RIGHT
+  changeAmmo: ChangeAmmo2
 --- !u!114 &114433204905072390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,9 +278,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b8c854471ecc4448f71fa676e5e3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapAmount: 0
+  scrapAmount: 20
   goldAmount: 0
-  pirateAmount: 0
+  pirateAmount: 8
   playerNumber: 2
   movementSpeed: 3
   rotateSpeed: 200
@@ -301,7 +312,7 @@ MonoBehaviour:
   scrapAmount: 0
   goldAmount: 0
   pirateAmount: 0
-  playerNumber: 2
+  playerNumber: 1
 --- !u!114 &114935081090962620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,7 +451,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4cbbdf891014c1f45958021f7fae13b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e65028149bfd9af4da550acfb756e08e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
