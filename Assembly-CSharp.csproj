@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\__Scripts\_GameManager\GameManager.cs" />
     <Compile Include="Assets\__Scripts\_Player\Player.cs" />
+    <Compile Include="Assets\__Scripts\_Player\PlayerAttack.cs" />
     <Compile Include="Assets\__Scripts\_Player\PlayerController.cs" />
     <Compile Include="Assets\__Scripts\_Resources\FloatingGoldMovement.cs" />
     <Compile Include="Assets\__Scripts\_Resources\FloatingGoldSpawn.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\__Scripts\_Resources\GoldCollision.cs" />
     <Compile Include="Assets\__Scripts\_Resources\PirateCollision.cs" />
     <Compile Include="Assets\__Scripts\_Resources\ScrapCollision.cs" />
+    <Compile Include="Assets\__Scripts\Bullet.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Projekty/Unity/ScrapShipsLD43/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
