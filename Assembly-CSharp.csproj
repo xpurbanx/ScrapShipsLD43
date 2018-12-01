@@ -75,6 +75,7 @@
     <Compile Include="Assets\__Scripts\_Resources\PirateCollision.cs" />
     <Compile Include="Assets\__Scripts\_Resources\ScrapCollision.cs" />
     <Compile Include="Assets\__Scripts\Bullet.cs" />
+    <Compile Include="Assets\__Scripts\UI\StatsDisplay.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Projekty/Unity/ScrapShipsLD43/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

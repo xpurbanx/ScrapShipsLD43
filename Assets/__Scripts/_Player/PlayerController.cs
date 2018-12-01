@@ -34,8 +34,16 @@ public class PlayerController : Player
     }
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown("f")) attack.Fire("f");
-        if (Input.GetKeyDown("h")) attack.Fire("h");
+        if (Input.GetKeyDown("f") && scrapAmount > 5) 
+        {
+            attack.Fire("f");
+            scrapAmount--;
+        }
+        if (Input.GetKeyDown("h") && scrapAmount > 5) 
+        {
+            attack.Fire("h");
+            scrapAmount--;
+        }
         Movement();
     }
     private void Update()
@@ -73,8 +81,8 @@ public class PlayerController : Player
         // rigidbody.MoveRotation(rigidbody.rotation - rotateAmount);
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.DrawLine(transform.position, transform.position + transform.up);
-    }
+    }*/
 }
