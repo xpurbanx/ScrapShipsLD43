@@ -16,7 +16,7 @@ public class PlayerController : Player
     private Player player;
     private float moveRotation;
 
-    public float maxHeight = 9f;
+    public float maxHeight = 10f;
     public float maxWidth = 6f;
 
     private PlayerAttack attack;

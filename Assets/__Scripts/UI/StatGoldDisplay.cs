@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatsDisplay : MonoBehaviour {
+public class StatGoldDisplay : MonoBehaviour {
 
     Text text;
     public Player player;
@@ -17,7 +17,8 @@ public class StatsDisplay : MonoBehaviour {
     void Update ()
     {
        
-        text.text = player.scrapAmount.ToString();
+        text.text = "Gold: " + player.goldAmount.ToString();
         
-	}
+
+    }
 }

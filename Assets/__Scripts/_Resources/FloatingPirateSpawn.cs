@@ -12,7 +12,7 @@ public class FloatingPirateSpawn : MonoBehaviour {
     {
         if (Time.time >= lastSpawn + cooldownTime)
         {
-            Instantiate(prefab, new Vector2(Random.Range(-6, 6), 9.9f), Quaternion.identity);
+            Instantiate(prefab, new Vector2(Random.Range(-9.5f, 9.5f), 9.9f), Quaternion.identity);
             lastSpawn = Time.time;
         }
           
