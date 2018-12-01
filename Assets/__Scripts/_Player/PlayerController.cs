@@ -8,6 +8,7 @@ public class PlayerController : Player
     private Rigidbody2D rigidbody;
     public float movementSpeed = 10f;
     public float rotateSpeed = 100f;
+    public float constantSpeed = 1f;
     private float moveDirection;
     private float moveAmount;
     private float rotateAmount;
@@ -38,7 +39,7 @@ public class PlayerController : Player
         //moveDirection = Input.GetAxisRaw("P2_Horizontal");
         moveDirection = player.InputVertical();
         moveAmount = moveDirection * movementSpeed * Time.deltaTime;
-        transform.position += transform.up * moveAmount;
+        transform.position += transform.up * moveAmount + transform.up * constantSpeed * Time.deltaTime;
 
         //rigidbody.MovePosition(new Vector2(rigidbody.transform.position + (rigidbody.transform.up * moveAmount), rigidbody.position.y ));
         //rigidbody.AddForce(new Vector2(0, moveAmount));

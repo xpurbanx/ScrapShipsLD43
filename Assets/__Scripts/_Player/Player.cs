@@ -7,21 +7,7 @@ public class Player : MonoBehaviour {
     public int playerNumber = 1;
     private float inputHorizontal, inputVertical;
 
-    private void Awake()
-    {
-        if (playerNumber == 1)
-        {
-            inputHorizontal = Input.GetAxisRaw("P1_Horizontal");
-            inputVertical = Input.GetAxisRaw("P1_Vertical");
-        }
 
-        else
-        {
-            inputHorizontal = Input.GetAxisRaw("P2_Horizontal");
-            inputVertical = Input.GetAxisRaw("P2_Vertical");
-        }
-
-    }
 
     public float InputHorizontal()
     {
