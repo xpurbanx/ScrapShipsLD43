@@ -8,7 +8,7 @@ public class StatsDisplay : MonoBehaviour {
     Text text;
     public Player player;
 
-    private void Start()
+    private void Awake()
     {
         text = GetComponent<Text>();       
     }
@@ -16,7 +16,7 @@ public class StatsDisplay : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        text.text = "";
+       
         text.text = player.scrapAmount.ToString();
         
 	}
