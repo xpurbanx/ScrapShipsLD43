@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114431122663216826}
   m_Layer: 0
   m_Name: FloatingScrap 1
-  m_TagString: Untagged
+  m_TagString: Scrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4302457296284864}
   - component: {fileID: 212256042436597986}
+  - component: {fileID: 65105554549259398}
   m_Layer: 0
   m_Name: Scrap_1
   m_TagString: Untagged
@@ -70,6 +71,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65105554549259398
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1602113051695664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.64, y: 0.64, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114431122663216826
 MonoBehaviour:
   m_ObjectHideFlags: 1
