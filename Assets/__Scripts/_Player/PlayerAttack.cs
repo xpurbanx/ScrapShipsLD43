@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : Player {
 
-    public GameObject scrapBullet1, pirateBullet, goldBullet;
+    public GameObject scrapBullet1;
     public Transform bulletSpawn1;
     public Transform bulletSpawn2;
     public float speed = 1f;
@@ -16,7 +16,6 @@ public class PlayerAttack : Player {
 
     public string fireLeft;
     public string fireRight;
-    public string changeAmmo;
 
 
     // Use this for initialization
@@ -34,8 +33,8 @@ public class PlayerAttack : Player {
         //}
     }
     void Start () {
-
-        ammo = scrapBullet1;
+		
+        
     }
 	
 	// Update is called once per frame
@@ -58,24 +57,12 @@ public class PlayerAttack : Player {
             }
         }
 
-        if (Input.GetButton(changeAmmo))
-            ChangeAmmo();
-
-    }
-    private void ChangeAmmo()
-    {
-        if (ammo == scrapBullet1)
-            ammo = pirateBullet;
-        if (ammo == pirateBullet)
-            ammo = goldBullet;
-        if (ammo == goldBullet)
-            ammo = scrapBullet1;
     }
 
     public void Fire()
     {
         
-            //ammo = scrapBullet1;
+            ammo = scrapBullet1;
         
             
         
