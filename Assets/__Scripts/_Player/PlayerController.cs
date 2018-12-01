@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Player {
+public class PlayerController : MonoBehaviour
+{
 
     private Rigidbody2D rigibody;
     public float movementSpeed = 10f;
@@ -12,49 +13,47 @@ public class PlayerController : Player {
     private float rotateAmount;
     private Transform transform;
     private Player player;
-
+    //private float inputHorizontal, inputVertical;
     private float moveRotation;
-    
+    // int playerNumber = 1;
 
-	void Start ()
+	private void Start ()
     {
         player.GetComponent<Player>();
         rigibody = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
-	}
+
+        //if (playerNumber == 1)
+        //{
+        //    inputHorizontal = Input.GetAxisRaw("Horizontal1");
+        //    inputVertical = Input.GetAxisRaw("Vertical1");
+        //}
+
+        //else
+        //{
+        //    inputHorizontal = Input.GetAxisRaw("Horizontal2");
+        //    inputVertical = Input.GetAxisRaw("Vertical2");
+        //}
+    }
 
     private void Update()
     {
-
+        Debug.Log(Input.GetAxisRaw("Horizontal"));
+        Debug.Log(Input.GetAxisRaw("Vertical"));
         Movement();
 
     }
-    // Update is called once per frame
-    //void FixedUpdate ()
-    //{
-    //    if (Input.GetAxisRaw("Vertical"))
-    //        rigibody.MovePosition(new Vector2(rigibody.transform.position.x, rigibody.transform.position.y + 1*movementSpeed));
-
-
-    //    if (Input.GetKey(KeyCode.DownArrow))
-    //        rigibody.MovePosition(new Vector2(rigibody.transform.position.x, rigibody.transform.position.y + -1*movementSpeed));
-
-
-    //    if (Input.GetKey(KeyCode.LeftArrow))
-    //        rigibody.MovePosition(new Vector2(rigibody.transform.position.x - 1*movementSpeed, rigibody.transform.position.y));
-
-
-    //    if (Input.GetKey(KeyCode.RightArrow))
-    //        rigibody.MovePosition(new Vector2(rigibody.transform.position.x + 1*movementSpeed, rigibody.transform.position.y));
-
-    //}
     private void Movement()
     {
-        moveDirection = Input.GetAxisRaw(player.inputHorizontal);
+        //moveDirection = Input.GetAxisRaw("P2_Horizontal");
+        moveDirection = Input.GetAxisRaw("Vertical");
         moveAmount = moveDirection * movementSpeed * Time.deltaTime;
         transform.position += transform.up * moveAmount;
+     
 
-        moveRotation = Input.GetAxisRaw(player.inputVertical);
+
+        //moveRotation = Input.GetAxisRaw("P2_Vertical");
+        moveRotation = Input.GetAxisRaw("Horizontal");
         rotateAmount = moveRotation * rotateSpeed * Time.deltaTime;
         transform.Rotate(new Vector3(0, 0 , -rotateAmount));
     }
