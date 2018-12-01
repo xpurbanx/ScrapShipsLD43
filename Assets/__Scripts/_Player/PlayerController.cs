@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : Player
 {
 
-    private Rigidbody2D rigibody;
+    private Rigidbody2D rigidbody;
     public float movementSpeed = 10f;
     public float rotateSpeed = 100f;
     private float moveDirection;
@@ -20,7 +20,7 @@ public class PlayerController : Player
 	private void Start ()
     {
         player = GetComponent<Player>();    
-        rigibody = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
 
         
@@ -39,12 +39,14 @@ public class PlayerController : Player
         moveDirection = player.InputVertical();
         moveAmount = moveDirection * movementSpeed * Time.deltaTime;
         transform.position += transform.up * moveAmount;
-     
 
+        //rigidbody.MovePosition(new Vector2(rigidbody.transform.position + (rigidbody.transform.up * moveAmount), rigidbody.position.y ));
+        //rigidbody.AddForce(new Vector2(0, moveAmount));
 
         //moveRotation = Input.GetAxisRaw("P2_Vertical");
         moveRotation = player.InputHorizontal();
         rotateAmount = moveRotation * rotateSpeed * Time.deltaTime;
         transform.Rotate(new Vector3(0, 0 , -rotateAmount));
+        //rigidbody.MoveRotation(rigidbody.rotation - rotateAmount);
     }
 }
