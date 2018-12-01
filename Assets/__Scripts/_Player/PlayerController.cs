@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Player
 {
 
     private Rigidbody2D rigibody;
@@ -19,41 +19,31 @@ public class PlayerController : MonoBehaviour
 
 	private void Start ()
     {
-       
+        player = GetComponent<Player>();    
         rigibody = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
 
-        //if (playerNumber == 1)
-        //{
-        //    inputHorizontal = Input.GetAxisRaw("Horizontal1");
-        //    inputVertical = Input.GetAxisRaw("Vertical1");
-        //}
-
-        //else
-        //{
-        //    inputHorizontal = Input.GetAxisRaw("Horizontal2");
-        //    inputVertical = Input.GetAxisRaw("Vertical2");
-        //}
+        
     }
 
     private void Update()
     {
-        Debug.Log(Input.GetAxisRaw("Horizontal"));
-        Debug.Log(Input.GetAxisRaw("Vertical"));
+        //Debug.Log(Input.GetAxisRaw("Horizontal"));
+        //Debug.Log(Input.GetAxisRaw("Vertical"));
         Movement();
 
     }
     private void Movement()
     {
         //moveDirection = Input.GetAxisRaw("P2_Horizontal");
-        moveDirection = Input.GetAxisRaw("Vertical");
+        moveDirection = player.InputVertical();
         moveAmount = moveDirection * movementSpeed * Time.deltaTime;
         transform.position += transform.up * moveAmount;
      
 
 
         //moveRotation = Input.GetAxisRaw("P2_Vertical");
-        moveRotation = Input.GetAxisRaw("Horizontal");
+        moveRotation = player.InputHorizontal();
         rotateAmount = moveRotation * rotateSpeed * Time.deltaTime;
         transform.Rotate(new Vector3(0, 0 , -rotateAmount));
     }
