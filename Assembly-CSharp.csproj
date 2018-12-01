@@ -67,8 +67,11 @@
     <Compile Include="Assets\__Scripts\_Resources\FloatingGoldMovement.cs" />
     <Compile Include="Assets\__Scripts\_Resources\FloatingGoldSpawn.cs" />
     <Compile Include="Assets\__Scripts\_Resources\FloatingJunkSpawn.cs" />
+    <Compile Include="Assets\__Scripts\_Resources\FloatingPirateMovement.cs" />
+    <Compile Include="Assets\__Scripts\_Resources\FloatingPirateSpawn.cs" />
     <Compile Include="Assets\__Scripts\_Resources\FloatingScrapMovement.cs" />
     <Compile Include="Assets\__Scripts\_Resources\GoldCollision.cs" />
+    <Compile Include="Assets\__Scripts\_Resources\PirateCollision.cs" />
     <Compile Include="Assets\__Scripts\_Resources\ScrapCollision.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Projekty/Unity/ScrapShipsLD43/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

@@ -36,7 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4302457296284864}
   - component: {fileID: 212256042436597986}
-  - component: {fileID: 114825055162773488}
   - component: {fileID: 50156615825186812}
   m_Layer: 0
   m_Name: Scrap_1
@@ -106,17 +105,6 @@ MonoBehaviour:
   prefab: {fileID: 4302457296284864}
   gameObjectWhenUseless: {fileID: 1051105183417660}
   scrapSpeed: 3
---- !u!114 &114825055162773488
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1602113051695664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e00897cefc170b40bc33e766756862a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212256042436597986
 SpriteRenderer:
   m_ObjectHideFlags: 1
