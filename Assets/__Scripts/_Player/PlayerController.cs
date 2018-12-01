@@ -30,20 +30,22 @@ public class PlayerController : Player
         rigidbody = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
 
+
         
     }
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown("f") && scrapAmount > 5) 
-        {
-            attack.Fire("f");
-            scrapAmount--;
-        }
-        if (Input.GetKeyDown("h") && scrapAmount > 5) 
-        {
-            attack.Fire("h");
-            scrapAmount--;
-        }
+        //if (Input.GetKeyDown("f")) 
+        //{
+        //    attack.Fire("f");
+        //    //scrapAmount--;
+        //}
+        //if (Input.GetKeyDown("h")) 
+        //{
+        //    attack.Fire("h");
+        //    //scrapAmount--;
+        //}
+        
         Movement();
     }
     private void Update()
