@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114844504164731444}
   - component: {fileID: 50909811204602218}
   - component: {fileID: 60456667661877102}
+  - component: {fileID: 114028029349391678}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -160,6 +161,17 @@ PolygonCollider2D:
       - {x: 0.24, y: -0.42}
       - {x: 0.24, y: -0.03}
       - {x: 0.21, y: 0.42999998}
+--- !u!114 &114028029349391678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780191413000392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e00897cefc170b40bc33e766756862a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114433204905072390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,6 +186,7 @@ MonoBehaviour:
   playerNumber: 1
   movementSpeed: 3
   rotateSpeed: 200
+  constantSpeed: 1
 --- !u!114 &114844504164731444
 MonoBehaviour:
   m_ObjectHideFlags: 1

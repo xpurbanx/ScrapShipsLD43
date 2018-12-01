@@ -237,18 +237,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1051105183417660, guid: 83d7e3c6a48ae834e92124cbc262a0df,
     type: 2}
   m_PrefabInternal: {fileID: 1118480807}
---- !u!114 &928919192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 928919191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e00897cefc170b40bc33e766756862a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1943332537}
 --- !u!1001 &939470727
 Prefab:
   m_ObjectHideFlags: 0
@@ -334,8 +322,27 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1602113051695664, guid: 83d7e3c6a48ae834e92124cbc262a0df, type: 2}
+      propertyPath: m_TagString
+      value: Scrap
+      objectReference: {fileID: 0}
+    - target: {fileID: 50156615825186812, guid: 83d7e3c6a48ae834e92124cbc262a0df,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114825055162773488, guid: 83d7e3c6a48ae834e92124cbc262a0df,
+        type: 2}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1051105183417660, guid: 83d7e3c6a48ae834e92124cbc262a0df,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 928919191}
     m_RemovedComponents:
-    - {fileID: 65105554549259398, guid: 83d7e3c6a48ae834e92124cbc262a0df, type: 2}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 83d7e3c6a48ae834e92124cbc262a0df, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1243200583
@@ -418,11 +425,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1602113051695664, guid: 83d7e3c6a48ae834e92124cbc262a0df,
     type: 2}
   m_PrefabInternal: {fileID: 1118480807}
---- !u!4 &1943332537 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4302457296284864, guid: 83d7e3c6a48ae834e92124cbc262a0df,
-    type: 2}
-  m_PrefabInternal: {fileID: 1118480807}
 --- !u!68 &1943332538
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -432,7 +434,7 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
