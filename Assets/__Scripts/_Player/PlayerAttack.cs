@@ -66,9 +66,9 @@ public class PlayerAttack : Player {
     {
         if (ammo == scrapBullet1)
             ammo = pirateBullet;
-        if (ammo == pirateBullet)
+       else if (ammo == pirateBullet)
             ammo = goldBullet;
-        if (ammo == goldBullet)
+       else if (ammo == goldBullet)
             ammo = scrapBullet1;
     }
 
