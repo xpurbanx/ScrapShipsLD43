@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
 
     private Rigidbody2D rbody;
     public float lifeTime = 2.0f;
+    public float speed = 1f;
     private float spawnTime;
     
 	// Use this for initialization

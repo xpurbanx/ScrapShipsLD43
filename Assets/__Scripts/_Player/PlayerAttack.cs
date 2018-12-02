@@ -9,7 +9,7 @@ public class PlayerAttack : Player {
    
     public Transform bulletSpawn1;
     public Transform bulletSpawn2;
-    public float speed = 1f;
+    //public float speed = 1f;
     private GameObject ammo;
     private Transform spawn;
     private float shootDir;
@@ -97,15 +97,15 @@ public class PlayerAttack : Player {
             yield return new WaitForSeconds(1f);
             ammoCoroutineStarted = false;
         }
-            
-            
-        
+
+    }
+    private IEnumerator ChargeShot()
+    {
+        yield return
     }
 
     public void Fire()
     {
-        
-            //ammo = scrapBullet1;
         
             
         
@@ -115,7 +115,7 @@ public class PlayerAttack : Player {
 
 
             //add force to the spawned objected
-            Bullet.GetComponent<Rigidbody2D>().AddForce(shootDir * transform.right * speed, ForceMode2D.Impulse);
+            Bullet.GetComponent<Rigidbody2D>().AddForce(shootDir * transform.right * ammo.GetComponent<Bullet>().speed, ForceMode2D.Impulse);
             lastBulletTime = Time.time;
 
             Debug.Log("Force is added");
