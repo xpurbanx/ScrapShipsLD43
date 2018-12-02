@@ -143,8 +143,9 @@ public class PlayerAttack : Player {
             if (ammo == scrapBullet1)
             {
                 ammo = pirateBullet;
-               // costShoot = ammo.GetComponent<Bullet>().costPirate;
-               // cost = playerController.pirateAmount;
+                //ammo.GetComponent<Bullet>().damage = previousPirateDamage;
+                // costShoot = ammo.GetComponent<Bullet>().costPirate;
+                // cost = playerController.pirateAmount;
                 ammoSprite.transform.localScale = new Vector3(0.3f, 0.3f, 1);
             }
                 
@@ -152,6 +153,7 @@ public class PlayerAttack : Player {
             {
                 ammoSprite.transform.localScale = new Vector3(2f, 2f, 1);
                 ammo = goldBullet;
+                //ammo.GetComponent<Bullet>().damage = previousGoldDamage;
                 //cost = playerController.goldAmount;
                 //costShoot = ammo.GetComponent<Bullet>().costGold;
             }
@@ -159,8 +161,9 @@ public class PlayerAttack : Player {
             else if (ammo == goldBullet)
             {
                 ammo = scrapBullet1;
-               // cost = playerController.scrapAmount;
-               // costShoot = ammo.GetComponent<Bullet>().costScrap;
+                //ammo.GetComponent<Bullet>().damage = previousScrapDamage;
+                // cost = playerController.scrapAmount;
+                // costShoot = ammo.GetComponent<Bullet>().costScrap;
             }
                 
 
@@ -172,6 +175,7 @@ public class PlayerAttack : Player {
     }
     private IEnumerator ChargeShot()
     {
+
         
                 while ((Input.GetButton(fireLeft) || Input.GetButton(fireRight)) && chargeStage < 3)
                 {
@@ -198,8 +202,10 @@ public class PlayerAttack : Player {
             alert.sprite = alert3;
         
     }
+    //private int previousScrapDamage;
+    //private int previousGoldDamage;
+   // private int previousPirateDamage;
 
-   
     public void Fire()
     {
         float shootForce;
@@ -217,18 +223,21 @@ public class PlayerAttack : Player {
         
         if (ammo == scrapBullet1)
         {
+            //previousScrapDamage = ammo.GetComponent<Bullet>().damage;
             playerController.scrapAmount = playerController.scrapAmount - costShoot;
-            ammo.GetComponent<Bullet>().damage = ammo.GetComponent<Bullet>().damage + (int)chargeStage;
+            //ammo.GetComponent<Bullet>().damage = ammo.GetComponent<Bullet>().damage + (int)chargeStage;
         }
         else if (ammo == pirateBullet)
         {
+            //previousPirateDamage = ammo.GetComponent<Bullet>().goldDamage;
             playerController.pirateAmount = playerController.pirateAmount - costShoot;
-            ammo.GetComponent<Bullet>().goldDamage = ammo.GetComponent<Bullet>().goldDamage + (int)chargeStage;
+            //ammo.GetComponent<Bullet>().goldDamage = ammo.GetComponent<Bullet>().goldDamage + (int)chargeStage;
         }
         else if (ammo == goldBullet)
         {
+            //previousGoldDamage = ammo.GetComponent<Bullet>().damage;
             playerController.goldAmount = playerController.goldAmount - costShoot;
-            ammo.GetComponent<Bullet>().damage = ammo.GetComponent<Bullet>().damage + (int)chargeStage;
+            //ammo.GetComponent<Bullet>().damage = ammo.GetComponent<Bullet>().damage + (int)chargeStage;
         }
         chargeStage = 0;
         lastBulletTime = Time.time;
