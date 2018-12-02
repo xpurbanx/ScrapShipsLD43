@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public static Player Player1, Player2;
+
     public int scrapAmount = 0;
     public int goldAmount = 0;
     public int pirateAmount = 0;
-
+    [SerializeField]
+    protected string playerTag;
+    
     public int playerNumber = 1;
     private float inputHorizontal, inputVertical;
 
+    private void OnEnable()
+    {
+        //if (Player1 == null) Player1 = this;
+        //else Player2 = this;
+        if (tag == "Player1") Player1 = this;
+        else Player2 = this;
+    }
 
 
     public float InputHorizontal()
@@ -19,7 +30,7 @@ public class Player : MonoBehaviour {
             return Input.GetAxisRaw("P1_Horizontal");
 
 
-        else
+        else 
             return Input.GetAxisRaw("P2_Horizontal");
 
     }
@@ -35,14 +46,32 @@ public class Player : MonoBehaviour {
     }
     void Start()
     {
-        pirateAmount = 0;
-        goldAmount = 0;
-        scrapAmount = 0;
-
-    }
-
         
+        
+
     }
+   
+    
+   
+    private void Update()
+    {
+        
+        //Debug.Log(scrapAmount);
+    }
+
+    public void AddScrap()
+    {
+        scrapAmount++;
+    }
+    public void AddPirate()
+    {
+        pirateAmount++;
+    }
+    public void AddGold()
+    {
+        goldAmount++;
+    }
+}
 
         
 

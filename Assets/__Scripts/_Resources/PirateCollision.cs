@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PirateCollision : MonoBehaviour
 {
-    private Player player;
+    public Player player;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class PirateCollision : MonoBehaviour
         if (collision.gameObject.tag == "Pirate")
         {
             player.pirateAmount++;
-            //Debug.Log(player.pirateAmount);
+            Debug.Log(player.pirateAmount);
             Destroy(collision.gameObject);
         }
     }

@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 114803378195797794}
   m_Layer: 0
   m_Name: Player_1
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -343,9 +343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6781e50c1d3fa346b80b377970c01b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapAmount: 0
+  scrapAmount: 20
   goldAmount: 0
-  pirateAmount: 0
+  pirateAmount: 8
+  playerTag: 
   playerNumber: 1
   scrapBullet1: {fileID: 1251236894572960, guid: 5609917277dbd1d45b5e9fca18619166,
     type: 2}
@@ -363,9 +364,6 @@ MonoBehaviour:
   cooldown: 0.5
   timeForCharge: 0.75
   chargeModifier: 0.75
-  fireLeft: Fire1LEFT
-  fireRight: Fire1RIGHT
-  changeAmmo: ChangeAmmo1
 --- !u!114 &114433204905072390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -380,6 +378,7 @@ MonoBehaviour:
   scrapAmount: 20
   goldAmount: 0
   pirateAmount: 8
+  playerTag: 
   playerNumber: 1
   movementSpeed: 3
   rotateSpeed: 200
@@ -408,9 +407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ddb83db4dd212459850a9de1ab7ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapAmount: 0
+  scrapAmount: 20
   goldAmount: 0
-  pirateAmount: 0
+  pirateAmount: 8
+  playerTag: Player1
   playerNumber: 1
 --- !u!114 &114935081090962620
 MonoBehaviour:

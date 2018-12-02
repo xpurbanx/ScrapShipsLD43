@@ -19,6 +19,9 @@ public class PlayerController : Player
     public float maxHeight = 10f;
     public float maxWidth = 6f;
 
+    string enemyPlayer;
+    int damageTaken;
+
     private PlayerAttack attack;
 
 
@@ -30,8 +33,49 @@ public class PlayerController : Player
         rigidbody = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
 
+        if (tag == "Player1")
+            enemyPlayer = "Player2";
+        else
+            enemyPlayer = "Player1";
 
-        
+        enemyPlayer = enemyPlayer + "Bullet";
+
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+
+        if (collision.collider.tag == enemyPlayer)
+        {
+
+            damageTaken = collision.collider.GetComponent<Bullet>().damage;// = collision.gameObject.GetComponent<Player>().scrapAmount - damage;
+            scrapAmount = scrapAmount - damageTaken;
+            //damageTaken = 0;
+            Debug.Log("HIT");
+            Debug.Log(scrapAmount);
+
+
+        }
+        //if (collision.gameObject.tag == "Scrap")
+        //{
+        //    AddScrap();
+        //    Debug.Log(scrapAmount);
+        //    Destroy(collision.gameObject);
+        //}
+        //if (collision.gameObject.tag == "Pirate")
+        //{
+        //    pirateAmount++;
+        //    Debug.Log(pirateAmount);
+        //    Destroy(collision.gameObject);
+        //}
+        //if (collision.gameObject.tag == "Gold")
+        //{
+        //    goldAmount++;
+        //    Debug.Log(goldAmount);
+        //    Destroy(collision.gameObject);
+        //}
+
     }
     private void FixedUpdate()
     {
@@ -56,6 +100,8 @@ public class PlayerController : Player
 
         
         RestrictPosition();
+        if (scrapAmount <= 0)
+            Destroy(gameObject);
 
     }
     private void RestrictPosition()

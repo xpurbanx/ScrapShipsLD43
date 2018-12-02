@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class ScrapCollision : MonoBehaviour
 {
-    private Player player;
+    public Player player;
 
     private void Start()
     {
-        player = GetComponent<Player>();
+        
+       player = GetComponent<Player>();
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Scrap")
         {
-            player.scrapAmount++;
-            //Debug.Log(player.scrapAmount);
+            player.AddScrap();
+            Debug.Log(player.scrapAmount);
             Destroy(collision.gameObject);
         }
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAttack : Player {
 
     public GameObject scrapBullet1, pirateBullet, goldBullet;
+    PlayerController playerController;
     public SpriteRenderer ammoSprite;
     private PlayerCommon playerCommon;
     public Sprite alert1, alert2, alert3;
@@ -21,28 +22,47 @@ public class PlayerAttack : Player {
     public float chargeModifier = .75f;
     private float chargeStage = 0f;
     private float shootTime;
-    public string fireLeft;
-    public string fireRight;
-    public string changeAmmo;
+    string fireLeft;
+    string fireRight;
+    string changeAmmo;
     bool ammoCoroutineStarted = false;
+    private int costShoot;
+    private int cost;
 
 
     // Use this for initialization
     private void Awake()
     {
-       
+        if(playerNumber == 1)
+        {
+            fireLeft = "Fire1LEFT";
+            fireRight = "Fire1RIGHT";
+            changeAmmo = "ChangeAmmo1";
+            playerTag = "Player1";
+        }
+        if (playerNumber == 2)
+        {
+            fireLeft = "Fire2LEFT";
+            fireRight = "Fire2RIGHT";
+            changeAmmo = "ChangeAmmo2";
+            playerTag = "Player2";
+        }
+
     }
     void Start () {
-        
+        playerController = GetComponent<PlayerController>();
         ammo = scrapBullet1;
+        cost = playerController.scrapAmount;
+        costShoot = ammo.GetComponent<Bullet>().costScrap;
         ammoSprite.sprite = ammo.GetComponent<SpriteRenderer>().sprite;
     }
 	
 	// Update is called once per frame
 	void Update () {
         //if (Input.GetKeyDown(fireLeft) || Input.GetKeyDown(fireRight))
-        if (Time.time > lastBulletTime + cooldown)
+        if ((Time.time > lastBulletTime + cooldown) && cost >= costShoot)
         {
+            
             if (Input.GetButtonDown(fireLeft))
             {
                 Debug.Log("FireLeftDown");
@@ -75,6 +95,7 @@ public class PlayerAttack : Player {
                 Fire();
                 alertPointRight.sprite = null;
             }
+            
         }
 
        // if (Input.GetButton(changeAmmo))
@@ -84,10 +105,36 @@ public class PlayerAttack : Player {
             Debug.Log("Coroutine Launching");
             ammoCoroutineStarted = true;
         }
-            
-        
+
+        ChangeCost();
+
 
     }
+
+    private void ChangeCost()
+    {
+        if (ammo == pirateBullet)
+        {
+            costShoot = ammo.GetComponent<Bullet>().costPirate;
+            cost = playerController.pirateAmount;
+           
+        }
+
+        else if (ammo == goldBullet)
+        {
+            
+            cost = playerController.goldAmount;
+            costShoot = ammo.GetComponent<Bullet>().costGold;
+        }
+
+        else if (ammo == scrapBullet1)
+        {
+            
+            cost = playerController.scrapAmount;
+            costShoot = ammo.GetComponent<Bullet>().costScrap;
+        }
+    }
+        
     private IEnumerator ChangeAmmo()
     {
         if (Input.GetButton(changeAmmo))
@@ -96,6 +143,8 @@ public class PlayerAttack : Player {
             if (ammo == scrapBullet1)
             {
                 ammo = pirateBullet;
+               // costShoot = ammo.GetComponent<Bullet>().costPirate;
+               // cost = playerController.pirateAmount;
                 ammoSprite.transform.localScale = new Vector3(0.3f, 0.3f, 1);
             }
                 
@@ -103,10 +152,17 @@ public class PlayerAttack : Player {
             {
                 ammoSprite.transform.localScale = new Vector3(2f, 2f, 1);
                 ammo = goldBullet;
+                //cost = playerController.goldAmount;
+                //costShoot = ammo.GetComponent<Bullet>().costGold;
             }
                 
             else if (ammo == goldBullet)
+            {
                 ammo = scrapBullet1;
+               // cost = playerController.scrapAmount;
+               // costShoot = ammo.GetComponent<Bullet>().costScrap;
+            }
+                
 
             ammoSprite.sprite = ammo.GetComponent<SpriteRenderer>().sprite;
             yield return new WaitForSeconds(1f);
@@ -151,13 +207,27 @@ public class PlayerAttack : Player {
         
         GameObject Bullet;
         Bullet = (Instantiate(ammo, spawn.transform.position, Quaternion.Euler(new Vector2(1, 0)))) as GameObject;
-       // Debug.Log("Bullet is found");
+        // Debug.Log("Bullet is found");
+        Bullet.tag = playerTag+"Bullet";
         shootForce = shootDir * ammo.GetComponent<Bullet>().speed * (chargeModifier * (1 + chargeStage));
 
         //add force to the spawned objected
         // Bullet.GetComponent<Rigidbody2D>().AddForce(shootDir * transform.right * ammo.GetComponent<Bullet>().speed, ForceMode2D.Impulse);
         Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * shootForce, ForceMode2D.Impulse);
         chargeStage = 0;
+        if (ammo == scrapBullet1)
+        {
+            playerController.scrapAmount = playerController.scrapAmount - costShoot;
+        }
+        else if (ammo == pirateBullet)
+        {
+            playerController.pirateAmount = playerController.pirateAmount - costShoot;
+        }
+        else if (ammo == goldBullet)
+        {
+            playerController.goldAmount = playerController.goldAmount - costShoot;
+        }
+
         lastBulletTime = Time.time;
 
        // Debug.Log("Force is added");

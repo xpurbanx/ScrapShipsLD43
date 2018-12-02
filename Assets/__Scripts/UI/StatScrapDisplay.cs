@@ -16,8 +16,8 @@ public class StatScrapDisplay : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-       
-        text.text = "Scrap: " + player.scrapAmount.ToString();
+       if (text.text != "Scrap: " + player.scrapAmount.ToString())
+             text.text = "Scrap: " + player.scrapAmount.ToString();
         
 
     }

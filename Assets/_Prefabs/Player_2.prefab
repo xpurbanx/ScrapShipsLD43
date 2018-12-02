@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 114803378195797794}
   m_Layer: 0
   m_Name: Player_2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1890723541352034}
   m_LocalRotation: {x: -0, y: -0, z: -0.69558567, w: 0.71844316}
-  m_LocalPosition: {x: 0.059, y: 0.14700016, z: 0}
+  m_LocalPosition: {x: 0.059, y: 0.1260001, z: 0}
   m_LocalScale: {x: 2.2774694, y: 1.2621874, z: 1.9476209}
   m_Children:
   - {fileID: 4953808314531556}
@@ -193,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1780191413000392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5356457, y: 0.3781433, z: 0}
+  m_LocalPosition: {x: 4.3036795, y: 0.5554838, z: 0}
   m_LocalScale: {x: 1.6, y: 1.4, z: 1}
   m_Children:
   - {fileID: 4076895539333204}
@@ -235,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467825768370824}
   m_LocalRotation: {x: -0, y: -0, z: -0.7021952, w: -0.7119845}
-  m_LocalPosition: {x: -0.123, y: 0.131, z: 0}
+  m_LocalPosition: {x: -0.123, y: 0.11, z: 0}
   m_LocalScale: {x: 2.2654624, y: 1.1146933, z: 2.788645}
   m_Children:
   - {fileID: 4045984704896558}
@@ -287,8 +287,8 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
-  m_Offset: {x: 0, y: 0.82}
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.78}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.4952618, y: 0.34600803}
@@ -343,9 +343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6781e50c1d3fa346b80b377970c01b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapAmount: 0
+  scrapAmount: 20
   goldAmount: 0
-  pirateAmount: 0
+  pirateAmount: 8
+  playerTag: 
   playerNumber: 2
   scrapBullet1: {fileID: 1251236894572960, guid: 5609917277dbd1d45b5e9fca18619166,
     type: 2}
@@ -362,10 +363,7 @@ MonoBehaviour:
   alertPointRight: {fileID: 212531328572276182}
   cooldown: 0.5
   timeForCharge: 0.75
-  chargeModifier: 0.5
-  fireLeft: Fire2LEFT
-  fireRight: Fire2RIGHT
-  changeAmmo: ChangeAmmo2
+  chargeModifier: 0.75
 --- !u!114 &114433204905072390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -380,6 +378,7 @@ MonoBehaviour:
   scrapAmount: 20
   goldAmount: 0
   pirateAmount: 8
+  playerTag: 
   playerNumber: 2
   movementSpeed: 3
   rotateSpeed: 200
@@ -408,9 +407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ddb83db4dd212459850a9de1ab7ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrapAmount: 0
+  scrapAmount: 20
   goldAmount: 0
-  pirateAmount: 0
+  pirateAmount: 8
+  playerTag: Player1
   playerNumber: 2
 --- !u!114 &114935081090962620
 MonoBehaviour:

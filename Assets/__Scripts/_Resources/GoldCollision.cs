@@ -16,7 +16,7 @@ public class GoldCollision : MonoBehaviour
         if (collision.gameObject.tag == "Gold")
         {
             player.goldAmount++;
-            Debug.Log(player.goldAmount);
+            //Debug.Log(player.goldAmount);
             Destroy(collision.gameObject);
         }
     }

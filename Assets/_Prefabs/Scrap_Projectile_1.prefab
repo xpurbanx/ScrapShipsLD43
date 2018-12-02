@@ -91,6 +91,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 1
   speed: 20
+  damage: 3
+  goldDamage: 5
+  shooterTag: 
+  costScrap: 1
+  costPirate: 0
+  costGold: 0
 --- !u!212 &212721065047300538
 SpriteRenderer:
   m_ObjectHideFlags: 1

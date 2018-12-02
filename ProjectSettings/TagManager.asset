@@ -7,6 +7,10 @@ TagManager:
   - Scrap
   - Gold
   - Pirate
+  - Player1
+  - Player2
+  - Player1Bullet
+  - Player2Bullet
   layers:
   - Default
   - TransparentFX
