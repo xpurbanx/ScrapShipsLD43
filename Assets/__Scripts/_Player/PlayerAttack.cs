@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerAttack : Player {
 
     public GameObject scrapBullet1, pirateBullet, goldBullet;
+    public SpriteRenderer ammoSprite;
+   
     public Transform bulletSpawn1;
     public Transform bulletSpawn2;
     public float speed = 1f;
@@ -17,6 +19,7 @@ public class PlayerAttack : Player {
     public string fireLeft;
     public string fireRight;
     public string changeAmmo;
+    bool ammoCoroutineStarted = false;
 
 
     // Use this for initialization
@@ -36,6 +39,7 @@ public class PlayerAttack : Player {
     void Start () {
 
         ammo = scrapBullet1;
+        ammoSprite.sprite = ammo.GetComponent<SpriteRenderer>().sprite;
     }
 	
 	// Update is called once per frame
@@ -49,7 +53,7 @@ public class PlayerAttack : Player {
                 shootDir = -1;
                 Fire();
             }
-
+            
             else if (Input.GetButton(fireRight))
             {
                 spawn = bulletSpawn2;
@@ -58,18 +62,44 @@ public class PlayerAttack : Player {
             }
         }
 
-        if (Input.GetButton(changeAmmo))
-            ChangeAmmo();
+       // if (Input.GetButton(changeAmmo))
+       if(Input.GetButton(changeAmmo) && !ammoCoroutineStarted)
+        {
+            StartCoroutine("ChangeAmmo");
+            Debug.Log("Coroutine Launching");
+            ammoCoroutineStarted = true;
+        }
+            
+        
 
     }
-    private void ChangeAmmo()
+    private IEnumerator ChangeAmmo()
     {
-        if (ammo == scrapBullet1)
-            ammo = pirateBullet;
-       else if (ammo == pirateBullet)
-            ammo = goldBullet;
-       else if (ammo == goldBullet)
-            ammo = scrapBullet1;
+        if (Input.GetButton(changeAmmo))
+        {
+            Debug.Log("Coroutine Started");
+            if (ammo == scrapBullet1)
+            {
+                ammo = pirateBullet;
+                ammoSprite.transform.localScale = new Vector3(0.3f, 0.3f, 1);
+            }
+                
+            else if (ammo == pirateBullet)
+            {
+                ammoSprite.transform.localScale = new Vector3(2f, 2f, 1);
+                ammo = goldBullet;
+            }
+                
+            else if (ammo == goldBullet)
+                ammo = scrapBullet1;
+
+            ammoSprite.sprite = ammo.GetComponent<SpriteRenderer>().sprite;
+            yield return new WaitForSeconds(1f);
+            ammoCoroutineStarted = false;
+        }
+            
+            
+        
     }
 
     public void Fire()
