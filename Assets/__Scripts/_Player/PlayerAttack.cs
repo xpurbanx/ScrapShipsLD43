@@ -214,20 +214,23 @@ public class PlayerAttack : Player {
         //add force to the spawned objected
         // Bullet.GetComponent<Rigidbody2D>().AddForce(shootDir * transform.right * ammo.GetComponent<Bullet>().speed, ForceMode2D.Impulse);
         Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * shootForce, ForceMode2D.Impulse);
-        chargeStage = 0;
+        
         if (ammo == scrapBullet1)
         {
             playerController.scrapAmount = playerController.scrapAmount - costShoot;
+            ammo.GetComponent<Bullet>().damage = ammo.GetComponent<Bullet>().damage + (int)chargeStage;
         }
         else if (ammo == pirateBullet)
         {
             playerController.pirateAmount = playerController.pirateAmount - costShoot;
+            ammo.GetComponent<Bullet>().goldDamage = ammo.GetComponent<Bullet>().goldDamage + (int)chargeStage;
         }
         else if (ammo == goldBullet)
         {
             playerController.goldAmount = playerController.goldAmount - costShoot;
+            ammo.GetComponent<Bullet>().damage = ammo.GetComponent<Bullet>().damage + (int)chargeStage;
         }
-
+        chargeStage = 0;
         lastBulletTime = Time.time;
 
        // Debug.Log("Force is added");

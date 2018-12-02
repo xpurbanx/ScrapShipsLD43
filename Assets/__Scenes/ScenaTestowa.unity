@@ -1010,6 +1010,11 @@ Prefab:
       propertyPath: scrapAmount
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114312077554547796, guid: eeabcd56ddd708c46bee2b0a9899a13c,
+        type: 2}
+      propertyPath: cooldown
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeabcd56ddd708c46bee2b0a9899a13c, type: 2}
   m_IsPrefabAsset: 0
@@ -2072,6 +2077,11 @@ Prefab:
     - target: {fileID: 4092210066983660, guid: 35e7f954f3a46ff4ba0f2f7bafbb3512, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114312077554547796, guid: 35e7f954f3a46ff4ba0f2f7bafbb3512,
+        type: 2}
+      propertyPath: cooldown
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35e7f954f3a46ff4ba0f2f7bafbb3512, type: 2}

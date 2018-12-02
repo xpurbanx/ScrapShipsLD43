@@ -51,6 +51,8 @@ public class PlayerController : Player
 
             damageTaken = collision.collider.GetComponent<Bullet>().damage;// = collision.gameObject.GetComponent<Player>().scrapAmount - damage;
             scrapAmount = scrapAmount - damageTaken;
+            if(goldAmount > 3)
+            goldAmount = goldAmount - collision.collider.GetComponent<Bullet>().goldDamage;
             //damageTaken = 0;
             Debug.Log("HIT");
             Debug.Log(scrapAmount);
