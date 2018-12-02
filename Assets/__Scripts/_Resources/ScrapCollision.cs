@@ -16,7 +16,7 @@ public class ScrapCollision : MonoBehaviour
         if (collision.gameObject.tag == "Scrap")
         {
             player.scrapAmount++;
-            Debug.Log(player.scrapAmount);
+            //Debug.Log(player.scrapAmount);
             Destroy(collision.gameObject);
         }
     }

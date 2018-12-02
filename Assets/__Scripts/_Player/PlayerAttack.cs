@@ -6,16 +6,21 @@ public class PlayerAttack : Player {
 
     public GameObject scrapBullet1, pirateBullet, goldBullet;
     public SpriteRenderer ammoSprite;
-   
+    private PlayerCommon playerCommon;
+    public Sprite alert1, alert2, alert3;
     public Transform bulletSpawn1;
     public Transform bulletSpawn2;
+    public SpriteRenderer alertPointLeft, alertPointRight;
     //public float speed = 1f;
     private GameObject ammo;
     private Transform spawn;
     private float shootDir;
     public float cooldown = 0.5f;
     private float lastBulletTime;
-
+    public float timeForCharge = .75f;
+    public float chargeModifier = .75f;
+    private float chargeStage = 0f;
+    private float shootTime;
     public string fireLeft;
     public string fireRight;
     public string changeAmmo;
@@ -25,19 +30,10 @@ public class PlayerAttack : Player {
     // Use this for initialization
     private void Awake()
     {
-        //if (playerNumber == 1)
-        //{
-        //    left = Input.GetAxis("Fire1LEFT");
-        //    right = Input.GetAxis("Fire1RIGHT");
-        //}
-        //else
-        //{
-        //    left = Input.GetAxis("Fire2LEFT");
-        //    right = Input.GetAxis("Fire2RIGHT");
-        //}
+       
     }
     void Start () {
-
+        
         ammo = scrapBullet1;
         ammoSprite.sprite = ammo.GetComponent<SpriteRenderer>().sprite;
     }
@@ -47,18 +43,37 @@ public class PlayerAttack : Player {
         //if (Input.GetKeyDown(fireLeft) || Input.GetKeyDown(fireRight))
         if (Time.time > lastBulletTime + cooldown)
         {
-            if (Input.GetButton(fireLeft))
+            if (Input.GetButtonDown(fireLeft))
             {
+                Debug.Log("FireLeftDown");
                 spawn = bulletSpawn1;
                 shootDir = -1;
-                Fire();
+                shootTime = Time.time;
+                StartCoroutine("ChargeShot");     
             }
-            
-            else if (Input.GetButton(fireRight))
+
+            if (Input.GetButtonUp(fireLeft))
             {
+                Debug.Log("FireLeftUp");
+                Fire();
+                alertPointLeft.sprite = null;
+            }
+
+            else if (Input.GetButtonDown(fireRight))
+            {
+                Debug.Log("FireRightDown");
                 spawn = bulletSpawn2;
                 shootDir = 1;
+                shootTime = Time.time;
+                StartCoroutine("ChargeShot");
+
+
+            }
+            if (Input.GetButtonUp(fireRight))
+            {
+                Debug.Log("FireRightUp");
                 Fire();
+                alertPointRight.sprite = null;
             }
         }
 
@@ -101,24 +116,51 @@ public class PlayerAttack : Player {
     }
     private IEnumerator ChargeShot()
     {
-        yield return
+        
+                while ((Input.GetButton(fireLeft) || Input.GetButton(fireRight)) && chargeStage < 3)
+                {
+                    chargeStage++;
+                    if (shootDir == -1)
+                        changeAlert(chargeStage, alertPointLeft);
+                    if (shootDir == 1)
+                        changeAlert(chargeStage, alertPointRight);
+                     Debug.Log("ChargeStage: " + chargeStage);
+                    yield return new WaitForSeconds(timeForCharge);
+                 }
+
+
+    }
+    private void changeAlert(float stage, SpriteRenderer alert)
+    {
+        if (stage == 0)
+            alert.sprite = null;
+        else if (stage == 1)
+            alert.sprite = alert1;
+        else if (stage == 2)
+            alert.sprite = alert2;
+        else if (stage == 3)
+            alert.sprite = alert3;
+        
     }
 
+   
     public void Fire()
     {
-        
+        float shootForce;
             
         
-            GameObject Bullet;
-            Bullet = (Instantiate(ammo, spawn.transform.position, Quaternion.Euler(new Vector2(1, 0)))) as GameObject;
-            Debug.Log("Bullet is found");
+        GameObject Bullet;
+        Bullet = (Instantiate(ammo, spawn.transform.position, Quaternion.Euler(new Vector2(1, 0)))) as GameObject;
+       // Debug.Log("Bullet is found");
+        shootForce = shootDir * ammo.GetComponent<Bullet>().speed * (chargeModifier * (1 + chargeStage));
 
+        //add force to the spawned objected
+        // Bullet.GetComponent<Rigidbody2D>().AddForce(shootDir * transform.right * ammo.GetComponent<Bullet>().speed, ForceMode2D.Impulse);
+        Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * shootForce, ForceMode2D.Impulse);
+        chargeStage = 0;
+        lastBulletTime = Time.time;
 
-            //add force to the spawned objected
-            Bullet.GetComponent<Rigidbody2D>().AddForce(shootDir * transform.right * ammo.GetComponent<Bullet>().speed, ForceMode2D.Impulse);
-            lastBulletTime = Time.time;
-
-            Debug.Log("Force is added");
+       // Debug.Log("Force is added");
         
 
         
